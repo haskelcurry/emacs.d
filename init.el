@@ -8,6 +8,7 @@
 (load-layer "better-defaults.el")
 (load-layer "package-init.el")
 (load-layer "main-init.el")
+(load-layer "evil-init.el")
 (load-layer "general-init.el")
 (load-layer "ivy-init.el")
 

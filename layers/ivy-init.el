@@ -1,7 +1,7 @@
 (use-package ivy
   :ensure t
   :diminish (ivy-mode . "")
-  :init (ivy-mode 1)
+  :init (ivy-mode t)
   :bind (:map ivy-mode-map
          ("C-h" . counsel-up-directory)
          ("C-j" . ivy-next-line)
@@ -9,7 +9,7 @@
          ("C-l" . ivy-alt-done)
          ("C-'" . ivy-avy))
   :config
-  (setq ivy-use-virtual-buffers t)
+  (setq ivy-use-virtual-buffers nil)
   (setq ivy-height 20)
   (setq ivy-count-format "(%d/%d) ")
   )

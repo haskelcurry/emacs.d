@@ -8,12 +8,6 @@
         which-key-side-window-max-width 0.33
         which-key-idle-delay 0.05))
 
-(use-package evil
-  :ensure t
-  :config
-  (require 'evil)
-  (evil-mode t))
-
 (use-package company :ensure t)
 (add-hook 'after-init-hook 'global-company-mode)
 

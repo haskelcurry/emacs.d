@@ -29,6 +29,7 @@
    "b"   '(:ignore t :which-key "Buffers")
    "bb"  'ivy-switch-buffer
    "bd"  'kill-this-buffer
+   "bm"  'kill-other-buffers
 
    "p"   '(:ignore t :which-key "Project")
    "pf"  'counsel-projectile-find-file

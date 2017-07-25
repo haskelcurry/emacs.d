@@ -11,16 +11,9 @@
 (setq sentence-end-double-space nil)
 (setq default-fill-column 80)
 (setq initial-scratch-message "")
-(menu-bar-mode -1)
-(tool-bar-mode -1)
-(scroll-bar-mode -1)
-(window-divider-mode 1)
-(global-linum-mode)
 (setq default-frame-alist '((font . "Source Code Pro-9")))
 (setq mouse-yank-at-point t)
 (setq evil-want-fine-undo nil)
-(desktop-save-mode t)
-(desktop-read)
 (setq tab-width 2)
 (setq-default evil-shift-width 2)
 (setq browse-url-browser-function 'browse-url-generic
@@ -28,13 +21,10 @@
 ;; No triple ESC stuff
 (define-key key-translation-map (kbd "ESC") (kbd "C-g"))
 
-(evil-define-operator evil-destroy (beg end type register yank-handler)
-  "delete without yanking text"
-  (evil-delete beg end type 95 yank-handler))
-
-(define-key evil-insert-state-map (kbd "C-h") 'delete-backward-char)
-(define-key evil-insert-state-map (kbd "C-d") 'evil-delete-char)
-(define-key evil-normal-state-map "d" 'evil-destroy)
-(define-key evil-normal-state-map "m" 'evil-delete)
-
-(add-to-list 'auto-mode-alist '("\\.js$" . react-mode))
+(desktop-save-mode t)
+(desktop-read)
+(menu-bar-mode -1)
+(tool-bar-mode -1)
+(scroll-bar-mode -1)
+(window-divider-mode 1)
+(global-linum-mode)
