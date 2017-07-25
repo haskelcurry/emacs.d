@@ -11,20 +11,6 @@
 (use-package company :ensure t)
 (add-hook 'after-init-hook 'global-company-mode)
 
-(defun setup-tide-mode ()
-  (interactive)
-  (tide-setup)
-  (flycheck-mode t)
-  (setq flycheck-check-syntax-automatically '(save mode-enabled))
-  (tide-hl-identifier-mode t)
-  (company-mode t))
-(use-package tide
-  :ensure t
-  :config
-  (setq company-tooltip-align-annotations t)
-  (add-hook 'before-save-hook 'tide-format-before-save)
-  (add-hook 'typescript-mode-hook #'setup-tide-mode))
-
 (use-package projectile :ensure t)
 (use-package counsel-projectile :ensure t)
 (use-package evil-escape

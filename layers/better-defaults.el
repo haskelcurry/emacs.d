@@ -14,17 +14,27 @@
 (setq default-frame-alist '((font . "Source Code Pro-9")))
 (setq mouse-yank-at-point t)
 (setq evil-want-fine-undo nil)
+
 (setq tab-width 2)
 (setq-default evil-shift-width 2)
+(setq javascript-indent-level 2)
+(setq js-indent-level 2)
+(setq js2-basic-offset 2)
+(setq typescript-indent-level 2)
+(setq web-mode-markup-indent-offset 2)
+(setq web-mode-css-indent-offset 2)
+(setq web-mode-code-indent-offset 2)
+(setq css-indent-offset 2)
+
 (setq browse-url-browser-function 'browse-url-generic
       browse-url-generic-program "google-chrome-stable")
 ;; No triple ESC stuff
 (define-key key-translation-map (kbd "ESC") (kbd "C-g"))
 
 (desktop-save-mode t)
-(desktop-read)
 (menu-bar-mode -1)
 (tool-bar-mode -1)
 (scroll-bar-mode -1)
-(window-divider-mode 1)
-(global-linum-mode)
+(window-divider-mode t)
+(global-linum-mode t)
+
