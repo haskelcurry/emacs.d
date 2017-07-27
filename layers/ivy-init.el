@@ -16,13 +16,7 @@
 
 (use-package counsel :ensure t
   :bind*
-  (("M-x"     . counsel-M-x)
-  ))
-
-(defun counsel-projectile-ag-word ()
-  (interactive)
-  (counsel-projectile-ag)
-  (ivy-next-history-element))
+  (("M-x"     . counsel-M-x)))
 
 (use-package swiper
   :ensure t)

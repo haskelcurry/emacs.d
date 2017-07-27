@@ -37,4 +37,4 @@
 (scroll-bar-mode -1)
 (window-divider-mode t)
 (global-linum-mode t)
-
+(global-auto-revert-mode t)

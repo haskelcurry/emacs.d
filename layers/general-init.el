@@ -2,6 +2,16 @@
   (interactive)
   (switch-to-buffer (other-buffer)))
 
+(defun ivy-with-thing-at-point (cmd)
+  (let ((ivy-initial-inputs-alist
+         (list
+          (cons cmd (thing-at-point 'symbol)))))
+    (funcall cmd)))
+
+(defun counsel-ag-thing-at-point ()
+  (interactive)
+  (ivy-with-thing-at-point 'counsel-ag))
+
 (require 'use-package)
 (use-package general
   :ensure t
@@ -35,7 +45,8 @@
    "pf"  'counsel-projectile-find-file
    "pp"  'counsel-projectile-switch-project
 
-   "/"   'counsel-ag
+   "/"   'counsel-projectile-ag
+   "*"   'counsel-ag-thing-at-point
    "TAB" '(alternate-buffer :which-key "prev buffer")
    "SPC" '(avy-goto-word-or-subword-1  :which-key "go to char")
 

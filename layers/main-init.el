@@ -2,13 +2,16 @@
   :ensure t
   :init
   (which-key-mode)
+  :diminish (which-key-mode . "Ꙍ")
   :config
   (which-key-setup-side-window-bottom)
   (setq which-key-sort-order 'which-key-key-order-alpha
         which-key-side-window-max-width 0.33
         which-key-idle-delay 0.05))
 
-(use-package company :ensure t)
+(use-package company
+  :diminish (company-mode . "©")
+  :ensure t)
 (add-hook 'after-init-hook 'global-company-mode)
 
 (use-package projectile :ensure t)
@@ -41,6 +44,7 @@
 
 (use-package flycheck
   :ensure t
+  :diminish (flycheck-mode . "ƒ")
   :init (global-flycheck-mode))
 
 (use-package avy :ensure t)
@@ -52,6 +56,28 @@
 
 (use-package doom-themes
   :ensure t
+  :diminish (undo-tree-mode . "U")
   :config
   (require 'doom-themes)
   (load-theme 'doom-one t))
+
+(use-package smooth-scrolling
+  :ensure t
+  :config
+  (require 'smooth-scrolling)
+  (setq scroll-margin 5
+	scroll-conservatively 9999
+	scroll-step 1))
+
+(use-package yasnippet
+  :ensure t
+  :diminish (yas-minor-mode . "Y")
+  :bind*
+  (("M-/"     . yas-expand))
+  :config
+  (require 'yasnippet)
+  (setq yas-snippet-dirs '("~/.emacs.d/snippets"))
+  (yas-global-mode 1))
+
+(use-package wgrep
+  :ensure t)
