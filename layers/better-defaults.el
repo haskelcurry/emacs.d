@@ -38,3 +38,4 @@
 (window-divider-mode t)
 (global-linum-mode t)
 (global-auto-revert-mode t)
+(electric-pair-mode t)

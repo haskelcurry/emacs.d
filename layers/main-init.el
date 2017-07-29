@@ -81,3 +81,18 @@
 
 (use-package wgrep
   :ensure t)
+
+(use-package evil-commentary
+  :ensure t
+  :config
+  (require 'evil-commentary)
+  (evil-commentary-mode))
+
+(use-package vimish-fold
+  :ensure t
+  :config
+  (require 'vimish-fold)
+  (vimish-fold-global-mode t))
+
+(use-package default-text-scale
+  :ensure t)

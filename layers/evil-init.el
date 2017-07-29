@@ -12,3 +12,6 @@
 (define-key evil-insert-state-map (kbd "C-d") 'evil-delete-char)
 (define-key evil-normal-state-map "d" 'evil-destroy)
 (define-key evil-normal-state-map "m" 'evil-delete)
+
+(with-eval-after-load 'evil
+  (defalias #'forward-evil-word #'forward-evil-symbol))
