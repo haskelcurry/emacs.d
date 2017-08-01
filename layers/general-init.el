@@ -26,8 +26,19 @@
    :states '(normal))
 
   (general-define-key
-   :states '(normal)
-   :prefix "C")
+   :keymaps 'ivy-mode-map
+
+   "C-h"  'counsel-up-directory
+   "C-j"  'ivy-next-line
+   "C-k"  'ivy-previous-line
+   "C-l"  'ivy-alt-done
+   "C-'"  'ivy-avy)
+
+  (general-define-key
+   :keymaps 'ivy-mode-map
+   :states '(insert)
+
+   "C-l" 'evil-complete-next)
 
   (general-define-key
    :states '(normal visual insert emacs)
@@ -68,9 +79,7 @@
    "TAB" '(alternate-buffer :which-key "prev buffer")
    "SPC" '(avy-goto-word-or-subword-1  :which-key "go to char")
 
-   "a"   '(:ignore t :which-key "Applications")
-   "ar"  'ranger
-   "ad"  'dired))
+   "a"   '(:ignore t :which-key "Applications")))
 
 (define-key global-map (kbd "C-f") 'universal-argument)
 (define-key universal-argument-map (kbd "C-u") nil)
