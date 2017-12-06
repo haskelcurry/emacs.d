@@ -1,14 +1,18 @@
 (defun alternate-buffer ()
   (interactive)
-  (switch-to-buffer (other-buffer)))
+  (switch-to-buffer (other-buffer (current-buffer) 1)))
 
 (defun ivy-with-thing-at-point (cmd)
   (let ((ivy-initial-inputs-alist
          (list
-          (cons cmd (thing-at-point 'symbol)))))
+          (cons cmd (replace-regexp-in-string "\\$" "$$" (thing-at-point 'symbol))))))
     (funcall cmd)))
 
 (defun counsel-ag-thing-at-point ()
+  (interactive)
+  (counsel-ag (thing-at-point 'symbol)))
+
+(defun counsel-ag-thing-at-point-root ()
   (interactive)
   (counsel-ag (thing-at-point 'symbol) (projectile-project-root)))
 
@@ -23,7 +27,10 @@
   (general-evil-setup t)
 
   (general-define-key
-   :states '(normal))
+   :states '(normal)
+
+   "/" 'swiper
+   "*" 'swiper-thing-at-point)
 
   (general-define-key
    :keymaps 'ivy-mode-map
@@ -35,10 +42,18 @@
    "C-'"  'ivy-avy)
 
   (general-define-key
+   :keymaps 'company-mode-map
+
+   "C-j"  'company-select-next
+   "C-k"  'company-select-previous
+   "M-m"  'company-complete-selection
+   "M-l"  'company-complete-selection)
+
+  (general-define-key
    :keymaps 'ivy-mode-map
    :states '(insert)
 
-   "C-l" 'evil-complete-next)
+   "C-l" 'ac-complete)
 
   (general-define-key
    :states '(normal visual insert emacs)
@@ -56,8 +71,10 @@
 
    "f"   '(:ignore t :which-key "files")
    "ff"  'counsel-find-file
+   "fv"  'ranger
    "fs"  'save-buffer
    "fr"  'counsel-recentf
+   "ft"  'neotree-toggle
 
    "b"   '(:ignore t :which-key "buffers")
    "bb"  'ivy-switch-buffer
@@ -69,16 +86,18 @@
    "pp"  'counsel-projectile-switch-project
 
    "s"   '(:ignore t :which-key "search")
-   "ss"   'swiper-thing-at-point
+   "sd"  'counsel-ag
 
    "r"   '(:ignore t :which-key "register")
    "ry"  'counsel-yank-pop
 
-   "/"   'counsel-projectile-ag
-   "*"   'counsel-ag-thing-at-point
+   "/"   'counsel-projectile-rg
+   "*"   'counsel-ag-thing-at-point-root
+   "("   'counsel-ag-thing-at-point
    "TAB" '(alternate-buffer :which-key "prev buffer")
    "SPC" '(avy-goto-word-or-subword-1  :which-key "go to char")
 
+   "c"   '(ng2-open-counterpart :which-key "ng2 counterpart")
    "a"   '(:ignore t :which-key "Applications")))
 
 (define-key global-map (kbd "C-f") 'universal-argument)

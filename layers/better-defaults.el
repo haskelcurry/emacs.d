@@ -31,6 +31,9 @@
 ;; No triple ESC stuff
 (define-key key-translation-map (kbd "ESC") (kbd "C-g"))
 
+(require 'desktop)
+(setq desktop-load-locked-desktop t)
+(setq desktop-path (list "~/.emacs.d"))
 (desktop-save-mode t)
 (menu-bar-mode -1)
 (tool-bar-mode -1)
@@ -39,3 +42,5 @@
 (global-linum-mode t)
 (global-auto-revert-mode t)
 (electric-pair-mode t)
+(winner-mode t)
+(setq package-check-signature nil)

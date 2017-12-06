@@ -2,7 +2,7 @@
   :ensure t
   :init
   (which-key-mode)
-  :diminish (which-key-mode . "Ꙍ")
+  :diminish (which-key-mode . "w")
   :config
   (which-key-setup-side-window-bottom)
   (setq which-key-sort-order 'which-key-key-order-alpha
@@ -10,12 +10,14 @@
         which-key-idle-delay 0.05))
 
 (use-package company
-  :diminish (company-mode . "©")
-  :ensure t)
-(add-hook 'after-init-hook 'global-company-mode)
+  :diminish (company-mode . "c")
+  :ensure t
+  :config
+  (add-hook 'after-init-hook 'global-company-mode))
 
 (use-package projectile :ensure t)
 (use-package counsel-projectile :ensure t)
+
 (use-package evil-escape
   :ensure t
   :config
@@ -44,7 +46,7 @@
 
 (use-package flycheck
   :ensure t
-  :diminish (flycheck-mode . "ƒ")
+  :diminish (flycheck-mode . "f")
   :init (global-flycheck-mode))
 
 (use-package avy :ensure t)
@@ -96,3 +98,19 @@
 
 (use-package default-text-scale
   :ensure t)
+
+(use-package ranger
+  :ensure t)
+
+(use-package all-the-icons
+  :ensure t)
+
+(use-package neotree
+  :ensure t
+  :config
+  (setq neo-smart-open t)
+  (setq projectile-switch-project-action 'neotree-projectile-action)
+  (setq neo-theme (if (display-graphic-p) 'icons 'arrow))
+  (evil-define-key 'normal neotree-mode-map (kbd "q") 'neotree-hide)
+  (evil-define-key 'normal neotree-mode-map (kbd "TAB") 'neotree-quick-look)
+  (evil-define-key 'normal neotree-mode-map (kbd "RET") 'neotree-enter))
