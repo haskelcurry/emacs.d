@@ -38,7 +38,7 @@
  '(org-fontify-whole-heading-line t)
  '(package-selected-packages
    (quote
-    (epresent web-mode spacemacs-theme flycheck doom-themes evil general which-key counsel ivy use-package)))
+    (auto-package-update epresent web-mode spacemacs-theme flycheck doom-themes evil general which-key counsel ivy use-package)))
  '(vc-annotate-background "#1B2229")
  '(vc-annotate-color-map
    (list

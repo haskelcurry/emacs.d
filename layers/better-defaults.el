@@ -11,7 +11,7 @@
 (setq sentence-end-double-space nil)
 (setq default-fill-column 80)
 (setq initial-scratch-message "")
-(setq default-frame-alist '((font . "Source Code Pro-9")))
+(setq default-frame-alist '((font . "Source Code Pro-10")))
 (setq mouse-yank-at-point t)
 (setq evil-want-fine-undo nil)
 
@@ -44,3 +44,5 @@
 (electric-pair-mode t)
 (winner-mode t)
 (setq package-check-signature nil)
+(setq company-dabbrev-downcase nil)
+(setq ivy-wrap t)
